@@ -1,23 +1,19 @@
 function flipCoin() {
-    document.querySelector('.trigger-btn').disabled = true; //Disable btn
+    document.getElementById('coinAudio').play(); // Play sound effect
+    document.querySelector('.trigger-btn').disabled = true;
+    var flipResult = Math.random();
+    var coinElement = document.querySelector('#coin');
 
-    document.getElementById('coin').innerText = "Wait..";
+    if (flipResult <= 0.5) {
+        coinElement.classList.add('heads');
+        // console.log('it is head');
+    } else {
+        coinElement.classList.add('tails');
+        // console.log('it is tails');
+    }
 
-    document.querySelector("#myAudio").play(); //Play sound effect
-
-    setTimeout(gettingRes, 2000);
+    setTimeout(function() {
+        document.querySelector('.trigger-btn').disabled = false;
+        coinElement.classList.value = '';
+    }, 3000);
 }
-
-function gettingRes() {
-    // Generate a random number (0 or 1)
-    const randomNumber = Math.floor(Math.random() * 2);
-
-    // Determine if it's heads or tails based on the random number
-    const result = randomNumber === 0 ? 'Heads' : 'Tails';
-
-    // Display the result
-    document.getElementById('coin').innerText = result;
-
-    document.querySelector('.trigger-btn').disabled = false;
-}
-

@@ -5,30 +5,88 @@
 }
 
 .coin-container {
-    background-color: #FFFCF1;
     height: 100vh;
+    background-color: #f9f9f9;
 }
 
-.coin {
-    background-image: linear-gradient(to bottom right, #ffb759, #ffcc59);
+.main-coin-cont {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+}
+body {
+    background-color: #FFFCF1;
+    -webkit-perspective: 800px;
+}
+
+#coin {
+    position: relative;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    background-image: radial-gradient(#FFDE59, #FFBD59);
+    /* background-image: linear-gradient(to top right, #FFDE59, #FFBD59); */
     border: 25px solid #FFDE59;
     height: 150px;
     width: 150px;
     border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 22px;
     font-weight: bold;
-    color: #000;
-    outline: 1px solid #ddd;
+    transition: -webkit-transform 1s ease-in;
+    -webkit-transform-style: preserve-3d;
 }
 
-.coin-container > .trigger-btn {
+#coin div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+            border-radius: 50%;
+}
+
+.side-a {
+    z-index: 100;
+}
+
+.side-b {
+    -webkit-transform: rotateX(-180deg);
+}
+
+#coin.heads {
+    -webkit-animation: flipHeads 3s ease-out forwards;
+    -moz-animation: flipHeads 3s ease-out forwards;
+        -o-animation: flipHeads 3s ease-out forwards;
+            animation: flipHeads 3s ease-out forwards;
+}
+
+#coin.tails {
+    -webkit-animation: flipTails 3s ease-out forwards;
+    -moz-animation: flipTails 3s ease-out forwards;
+        -o-animation: flipTails 3s ease-out forwards;
+            animation: flipTails 3s ease-out forwards;
+}
+  
+@-webkit-keyframes flipHeads {
+    from { -webkit-transform: rotateX(0); -moz-transform: rotateX(0); transform: rotateX(0); }
+    to { -webkit-transform: rotateX(1800deg); -moz-transform: rotateY(1800deg); transform: rotateX(1800deg); }
+}
+@-webkit-keyframes flipTails {
+    from { -webkit-transform: rotateX(0); -moz-transform: rotateY(0); transform: rotateY(0); }
+    to { -webkit-transform: rotateX(1980deg); -moz-transform: rotateX(1980deg); transform: rotateX(1980deg); }
+}
+
+.trigger-btn {
     border: none;
     padding: 12px 30px;
     font-weight: bold;
@@ -37,10 +95,11 @@
     left: 50%;
     position: absolute;
     transform: translateX(-50%);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     width: 70%;
     max-width: 200px;
     background-image: linear-gradient(to bottom right, #FFBD59, #FFDE59);
 }
 
+  
   
