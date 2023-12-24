@@ -1,19 +1,19 @@
+var coinAudio = new Audio('audio/coin-flip.mp3');
+var coinButton = document.getElementById('flipCoin');
+var coinElement = document.getElementById('coin');
+
 function flipCoin() {
-    document.getElementById('coinAudio').play(); // Play sound effect
-    document.querySelector('.trigger-btn').disabled = true;
-    var flipResult = Math.random();
-    var coinElement = document.querySelector('#coin');
+    coinButton.disabled = true;
+    coinElement.classList = '';
 
-    if (flipResult <= 0.5) {
-        coinElement.classList.add('heads');
-        // console.log('it is head');
-    } else {
-        coinElement.classList.add('tails');
-        // console.log('it is tails');
-    }
+    coinAudio.play();
 
-    setTimeout(function() {
-        document.querySelector('.trigger-btn').disabled = false;
-        coinElement.classList.value = '';
-    }, 3000);
+    setTimeout(function () {
+        coinElement.classList.add(Math.random() <= 0.5 ? 'heads' : 'tails');
+        console.log('It is ' + (coinElement.classList.contains('heads') ? 'heads' : 'tails'));
+
+        setTimeout(function () {
+            coinButton.disabled = false;
+        }, 3000);
+    }, 100);
 }

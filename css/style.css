@@ -6,7 +6,10 @@
 
 .coin-container {
     height: 100vh;
-    background-color: #f9f9f9;
+    background-image: radial-gradient(#200b79 3px, transparent 3px), radial-gradient(#200b79 3px, transparent 3px);
+    background-size: 100px 100px;
+    background-position: 0 0, 50px 50px;
+    background-color: #3c1e47;
 }
 
 .main-coin-cont {
@@ -16,7 +19,7 @@
     transform: translate(-50%, -40%);
 }
 body {
-    background-color: #FFFCF1;
+    background-color: #f9f9f9;
     -webkit-perspective: 800px;
 }
 
@@ -27,7 +30,6 @@ body {
     height: 100px;
     cursor: pointer;
     background-image: radial-gradient(#FFDE59, #FFBD59);
-    /* background-image: linear-gradient(to top right, #FFDE59, #FFBD59); */
     border: 25px solid #FFDE59;
     height: 150px;
     width: 150px;
@@ -78,9 +80,10 @@ body {
 }
   
 @-webkit-keyframes flipHeads {
-    from { -webkit-transform: rotateX(0); -moz-transform: rotateX(0); transform: rotateX(0); }
-    to { -webkit-transform: rotateX(1800deg); -moz-transform: rotateY(1800deg); transform: rotateX(1800deg); }
+    from { -webkit-transform: rotateX(0); transform: rotateX(0); }
+    to { -webkit-transform: rotateX(1800deg); transform: rotateX(1800deg); }
 }
+
 @-webkit-keyframes flipTails {
     from { -webkit-transform: rotateX(0); -moz-transform: rotateY(0); transform: rotateY(0); }
     to { -webkit-transform: rotateX(1980deg); -moz-transform: rotateX(1980deg); transform: rotateX(1980deg); }
